@@ -24,7 +24,20 @@ export const getCountries = async (req, res) => {
       skip,
     });
   } catch (error) {
-    res.stats(400).send(error.message);
+    res.status(400).send(error.message);
     console.log(error);
+  }
+};
+
+export const getCountryBySlug = async (req, res) => {
+  try {
+    const { slug } = req.params;
+
+    const country = await CountryModel.findOne({
+      "name.slug": slug,
+    });
+    res.json(country);
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 };
