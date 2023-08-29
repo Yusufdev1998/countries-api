@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import express from "express";
+import cors from "cors"
 import {
   getCountries,
   getCountryBySlug,
@@ -13,7 +14,7 @@ try {
   console.log(error);
 }
 const app = express();
-
+app.use(cors())
 // app.get("/dump-data", dumpData);
 app.get("/", (req, res)=> {
   res.send("go for /countries")
