@@ -16,13 +16,7 @@ const app = express();
 
 // app.get("/dump-data", dumpData);
 app.get("/", (req, res)=> {
-  res.send(`<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Countries API</title>
+  res.send(`
     <style>
       @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;800&display=swap);
 
@@ -81,8 +75,8 @@ app.get("/", (req, res)=> {
         color: rgb(102, 0, 255);
       }
     </style>
-  </head>
-  <body>
+
+
     <div class="container">
       <ul class="list">
         <li class="item">
@@ -139,8 +133,7 @@ app.get("/", (req, res)=> {
         </li>
       </ul>
     </div>
-  </body>
-</html>`)
+`)
 })
 
 app.get("/countries", getCountries);
